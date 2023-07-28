@@ -15,3 +15,13 @@ jobs:
 
       - name: demo workflow job
         run: echo This is a demo start workflow
+
+checkovsteps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      - name: Run Prisma Cloud 
+        id: Prisma Cloud
+        uses: bridgecrewio/checkov-action@master 
+        with:
+          api-key: ${{ secrets.BC_API_KEY }}
